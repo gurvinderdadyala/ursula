@@ -11,5 +11,6 @@
                     tenant_name=admin
                     login_user=admin
                     login_password={{ secrets.admin_password }}
+                    insecure={{ client.self_signed_cert|lower }}
   with_items: keystone.services
   when: endpoints[item.name] is defined and endpoints[item.name]

@@ -89,7 +89,8 @@ def _get_ksclient(module, kwargs):
                                  password=kwargs.get('login_password'),
                                  tenant_name=kwargs.get('login_tenant_name'),
                                  auth_url=kwargs.get('auth_url'),
-                                 cacert=kwargs.get('cacert'))
+                                 cacert=kwargs.get('cacert'),
+                                 insecure=kwargs.get('insecure'))
     except Exception as e:
         module.fail_json(msg = "Error authenticating to the keystone: %s " % e.message)
     global _os_keystone
@@ -210,8 +211,11 @@ def main():
             subnet_name                     = dict(required=True),
             tenant_name                     = dict(default=None),
             state                           = dict(default='present', choices=['absent', 'present']),
+            insecure                        = dict(required=False, default=False, choices=BOOLEANS),
         ),
     )
+
+    module.params['insecure'] = module.boolean(module.params['insecure'])
 
     neutron = _get_neutron_client(module, module.params)
     _set_tenant_id(module)

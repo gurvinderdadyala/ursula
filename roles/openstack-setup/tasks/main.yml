@@ -7,5 +7,7 @@
 
 - include: networks.yml
   when: openstack_setup.add_networks|bool or openstack_setup.add_networks is undefined
+  tags:
+    - nets
 
 - include: flavors.yml

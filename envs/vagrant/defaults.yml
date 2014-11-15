@@ -328,3 +328,6 @@ ssl:
 common:
   ipmi:
     enabled: false
+
+ironic:
+  enabled: false

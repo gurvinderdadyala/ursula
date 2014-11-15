@@ -135,7 +135,8 @@ def _get_ksclient(module, kwargs):
                                  password=kwargs.get('login_password'),
                                  tenant_name=kwargs.get('login_tenant_name'),
                                  auth_url=kwargs.get('auth_url'),
-                                 cacert=kwargs.get('cacert'))
+                                 cacert=kwargs.get('cacert'),
+                                 insecure=kwargs.get('insecure'))
     except Exception as e:
         module.fail_json(msg = "Error authenticating to the keystone: %s " % e.message)
     return client
@@ -231,10 +232,12 @@ def main():
             copy_from         = dict(default= None),
             timeout           = dict(default=180),
             file              = dict(default=None),
-            state            = dict(default='present', choices=['absent', 'present'])
+            state             = dict(default='present', choices=['absent', 'present']),
+            insecure          = dict(required=False, default=False, choices=BOOLEANS),
         ),
         mutually_exclusive = [['file','copy_from']],
     )
+    module.params['insecure'] = module.boolean(module.params['insecure'])
     if module.params['state'] == 'present':
         if not module.params['file'] and not module.params['copy_from']:
             module.fail_json(msg = "Either file or copy_from variable should be set to create the image")
