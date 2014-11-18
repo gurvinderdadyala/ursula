@@ -10,5 +10,3 @@
                 timeout=12000
                 insecure={{ client.self_signed_cert|lower }}
   with_items: glance.images
-  tags:
-    - images
