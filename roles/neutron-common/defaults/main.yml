@@ -11,6 +11,7 @@ neutron:
     - neutron.services.l3_router.l3_router_plugin.L3RouterPlugin
   enable_flat_networks: False
   alembic_version: 0.7.0
+<<<<<<< HEAD
 
   logs:
     - paths:
@@ -33,3 +34,5 @@ neutron:
       fields:
         type: openstack
         tags: neutron,neutron-metadata-agent
+=======
+>>>>>>> 73258c0... Pin alembic to 0.7.0 so migrations work.
