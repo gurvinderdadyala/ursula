@@ -4,7 +4,6 @@ keystone:
   token_expiration_in_seconds: 86400
   admin_workers: 5
   public_workers: 5
-
   logs:
     - paths:
       - /var/log/keystone/keystone-all.log
