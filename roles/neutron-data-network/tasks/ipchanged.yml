@@ -20,6 +20,11 @@
   template: src=etc/ipchanged/add_floating_ip mode=0755
             dest=/etc/ipchanged/{{ ansible_default_ipv4.interface }}/{{ floating_ip }}/add
 
+# Graceful restart of neutron services on external IP failover
+- name: configure neutron external services failover
+  template: src=etc/ipchanged/delete_floating_ip mode=0755
+            dest=/etc/ipchanged/{{ ansible_default_ipv4.interface }}/{{ floating_ip }}/delete
+
 # Send gratuitous on internal floating IP failover
 - name: configure neutron internal services failover
   template: src=etc/ipchanged/add_internal_floating_ip mode=0755

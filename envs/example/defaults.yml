@@ -340,6 +340,9 @@ openstack_setup:
   add_networks: True
   add_cinder: True
 
+haproxy:
+  mysql: True
+
 percona:
   replication: True
 

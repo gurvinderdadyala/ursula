@@ -108,3 +108,18 @@
   when: neutron.plugin == 'ovs'
   notify:
     - restart neutron services
+
+- name: neutron stop all script
+  template: src=usr/local/bin/neutron-stop-all
+            dest=/usr/local/bin/neutron-stop-all
+            mode=0755
+
+- name: neutron start all script
+  template: src=usr/local/bin/neutron-start-all
+            dest=/usr/local/bin/neutron-start-all
+            mode=0755
+
+- name: neutron restart all script
+  template: src=usr/local/bin/neutron-restart-all
+            dest=/usr/local/bin/neutron-restart-all
+            mode=0755

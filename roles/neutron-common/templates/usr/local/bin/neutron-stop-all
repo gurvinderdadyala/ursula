@@ -1,0 +1,7 @@
+#!/bin/bash
+
+stop neutron-server
+stop neutron-linuxbridge-agent
+stop neutron-dhcp-agent
+stop neutron-l3-agent
+stop neutron-metadata-agent

@@ -5,6 +5,7 @@ cinder:
   default_backend: None
   backends: []
   api_workers: 5
+
   logs:
   - paths:
       - /var/log/cinder/cinder-api.log

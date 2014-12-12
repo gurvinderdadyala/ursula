@@ -1,0 +1,7 @@
+#!/bin/bash
+
+start neutron-server
+start neutron-linuxbridge-agent
+start neutron-dhcp-agent
+start neutron-l3-agent
+start neutron-metadata-agent

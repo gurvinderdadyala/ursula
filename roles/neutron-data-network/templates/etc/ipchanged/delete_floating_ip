@@ -1,0 +1,10 @@
+#!/bin/bash
+
+logger ipchanged DOWN floating interface
+
+logger ipchanged DOWN stopping neutron
+neutron-stop-all
+loggner ipchanged DOWN Shutting down
+sleep 10
+
+shutdown -h now
