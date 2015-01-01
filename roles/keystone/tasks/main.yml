@@ -104,3 +104,39 @@
             owner=root group=root mode=0755
 
 - include: monitoring.yml tags=monitoring,common
+
+- name: ensure apache listening on keystone ports
+  lineinfile: dest=/etc/apache2/ports.conf line="{{ item }}"
+  with_items:
+    - "Listen 5001"
+    - "Listen 35358"
+  notify:
+    - reload apache
+
+- name: set up keystone site on ubuntu 12.04
+  template: src=etc/apache2/sites-available/{{ item }}.conf
+            dest=/etc/apache2/sites-available/{{ item }}
+  when: ansible_distribution_version == "12.04"
+  with_items:
+    - keystone
+    - keystone-admin
+  notify:
+    - reload apache
+
+- name: set up keystone site on newer ubuntu
+  template: src=etc/apache2/sites-available/{{ item }}.conf
+            dest=/etc/apache2/sites-available/{{ item }}.conf
+  when: ansible_distribution_version != "12.04"
+  with_items:
+    - keystone
+    - keystone-admin
+  notify:
+    - reload apache
+
+- name: enable keystone apache site
+  apache2_site: state=enabled name={{ item }}
+  with_items:
+    - keystone
+    - keystone-admin
+  notify:
+    - reload apache
