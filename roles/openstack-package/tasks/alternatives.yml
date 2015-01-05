@@ -1,0 +1,3 @@
+---
+- name: setup alternatives for installed packages
+  shell: update-alternatives --install /usr/local/bin/{{ item }} {{ item }} /opt/openstack/{{ project_name }}/bin/{{ item }} 10

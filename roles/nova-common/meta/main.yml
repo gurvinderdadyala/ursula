@@ -4,3 +4,7 @@ dependencies:
   - role: logging-config
     service: nova
     logdata: "{{ nova.logs }}"
+  - role: openstack-package
+    project_name: nova
+    package_alternatives: nova.console_scripts
+    when: openstack_source == 'packages'

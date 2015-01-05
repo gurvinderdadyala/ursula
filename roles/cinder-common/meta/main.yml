@@ -4,3 +4,7 @@ dependencies:
   - role: logging-config
     service: cinder
     logdata: "{{ cinder.logs }}"
+  - role: openstack-package
+    project_name: cinder
+    package_alternatives: cinder.console_scripts
+    when: openstack_source == 'packages'

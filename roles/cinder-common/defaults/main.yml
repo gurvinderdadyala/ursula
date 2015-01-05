@@ -1,11 +1,19 @@
 ---
 cinder:
-  rev: 7b1d7a31335bd8723551c9af5c270927ad830c3f
   enabled_backends: None
   default_backend: None
   backends: []
   api_workers: 5
-
+  console_scripts:
+    - cinder-all
+    - cinder-api
+    - cinder-backup
+    - cinder-manage
+    - cinder-rootwrap
+    - cinder-rtstool
+    - cinder-scheduler
+    - cinder-volume
+    - cinder-volume-usage-audit
   logs:
   - paths:
       - /var/log/cinder/cinder-api.log

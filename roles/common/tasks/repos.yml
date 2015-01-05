@@ -1,0 +1,9 @@
+---
+- name: install bbg openstack repo key
+  apt_key: url=http://repo.openstack.blueboxgrid.com/blue_box_cloud.gpg.key
+
+- name: install bbg repos
+  apt_repository: repo="{{ item }}" update_cache=yes
+  with_items:
+    - 'deb http://repo.openstack.blueboxgrid.com/ubuntu/ precise main'
+    - 'deb http://repo.openstack.blueboxgrid.com/bbc/ precise main' 

@@ -1,0 +1,10 @@
+- name: get ironic source repo
+  git: repo={{ openstack.git_mirror }}/ironic.git
+       dest={{ ironic.path }}
+       version={{ ironic.rev }}
+       update={{ openstack.git_update }}
+  notify:
+  - pip install ironic
+  - fix ironic certs
+  - create ironic symlinks
+

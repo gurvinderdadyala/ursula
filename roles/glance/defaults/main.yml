@@ -1,6 +1,5 @@
 ---
 glance:
-  rev: def65d3a891a15a671f0713d3dbc9563228af9a7
   api_workers: 5
   registry_workers: 5
   sync:
@@ -13,7 +12,17 @@ glance:
     device_name: image-cache
     dir: /var/lib/glance/images
   store_swift: False
-
+  console_scripts:
+    - glance-api
+    - glance-cache-cleaner
+    - glance-cache-manage
+    - glance-cache-prefetcher
+    - glance-cache-pruner
+    - glance-control
+    - glance-manage
+    - glance-registry
+    - glance-replicator
+    - glance-scrubber
   logs:
     - paths:
         - /var/log/glance/glance-api.log
