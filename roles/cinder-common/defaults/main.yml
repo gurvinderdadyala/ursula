@@ -1,8 +1,8 @@
 ---
 cinder:
   rev: eedc8eda9bbb
-  enabled_backends: None
-  default_backend: None
+  enabled_backends:
+  default_backend:
   backends: []
 
   logs:
