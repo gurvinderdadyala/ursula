@@ -6,6 +6,8 @@ undercloud_cidr: '172.16.0.0/24'
 
 country_code: US
 
+openstack_install_method: source
+
 fqdn: openstack.example.org
 undercloud_floating_ip: "{{ hostvars[groups['controller'][0]][primary_interface]['ipv4']['address'] }}"
 secrets:
