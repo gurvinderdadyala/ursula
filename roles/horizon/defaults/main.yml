@@ -6,4 +6,4 @@ horizon:
   virtualenv: /opt/stack/horizon/.venv
 
   source:
-    rev: 'e5a9037d2ff5f2fbd5bde8e073e90b8d290994d3'
+    rev: 'ae81a8b7b3cffbaafaf232bd00a09f85d125b01d'
