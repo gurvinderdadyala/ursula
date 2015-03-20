@@ -27,7 +27,7 @@ glance_auth = {
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument('--imagedir', help='Glance file store image directory',
-                    default='/var/lib/glance/images')
+                       default='/var/lib/glance/images')
 options = argparser.parse_args()
 
 store_directory = options.imagedir
